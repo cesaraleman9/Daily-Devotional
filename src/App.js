@@ -15,17 +15,17 @@ function App() {
     .finally(() => setIsLoaded(true));
   }, []);
 
-  if(error){
+  if(error)
     return (
       <div className="App">
-        <h1>An error ocurred</h1>
+        <h1>Ocurrió un error ...</h1>
         <p>Error: {error.message}</p>
       </div>
-    )}
+    )
   else if(!isLoaded)
     return (
       <div className="App">
-        <h1 className="loading">Loading ...</h1>
+        <h1 className="loading">Cargando ...</h1>
       </div>
     )
   else
@@ -40,11 +40,11 @@ function App() {
 function Devotional({ data }){
   return (
     <div className="devotional">
-      <h1 className="title">{data.title}</h1>
       <p className="date">{data.date}</p>
-      <p className="vers">{data.vers}</p>
+      <h1 className="title">{data.title}</h1>
+      <p className="verse">{data.vers}</p>
       <div className="content">
-        {data.content.map((p, i) => <p key={i}>{p}</p> )}
+        {data.content.map((paragraph, index) => <p key={index}>{paragraph}</p> )}
       </div>
     </div>
   );
